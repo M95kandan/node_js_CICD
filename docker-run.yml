@@ -19,7 +19,7 @@
     - name: Run Docker container
       docker_container:
         name: node-app
-        image: {{ dockerhub_repository }}
+        image: "{{ dockerhub_repository }}"
         ports:
           - "80:80"
         restart_policy: always
