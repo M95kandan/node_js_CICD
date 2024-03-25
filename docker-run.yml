@@ -1,5 +1,5 @@
 ---
-- name: Install Apache HTTPD and PHP on Amazon Linux
+- name: Docker run playbook
   hosts: back_end
   remote_user: ec2-user
   become: true
@@ -19,7 +19,7 @@
     - name: Run Docker container
       docker_container:
         name: node-app
-        image: xpb-node-app
+        image: {{ dockerhub_repository }}
         ports:
           - "80:80"
         restart_policy: always
