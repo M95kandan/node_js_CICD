@@ -14,7 +14,7 @@
 
     - name: Copy HAProxy config file
       template:
-        src: "/home/ec2-user/node_js_CICD/haproxy.cfg.j2"
+        src: "/home/ec2-user/jenkins-IAC/workspace/node_js_CICD/haproxy.cfg.j2"
         dest: "/etc/haproxy/haproxy.cfg"
       notify: Restart HAProxy
 
