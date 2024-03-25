@@ -1,0 +1,25 @@
+---
+- name: Install Apache HTTPD and PHP on Amazon Linux
+  hosts: back_end
+  remote_user: ec2-user
+  become: true
+
+  tasks:
+    - name: Installing Docker
+      yum:
+        name: docker
+        state: present
+
+    - name: Enable and start docker
+      systemd:
+        name: docker
+        enabled: yes
+        state: started
+
+    - name: Run Docker container
+      docker_container:
+        name: node-app
+        image: xpb-node-app
+        ports:
+          - "80:80"
+        restart_policy: always
