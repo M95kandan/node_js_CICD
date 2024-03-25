@@ -18,7 +18,7 @@
 
     - name: Run Docker container
       docker_container:
-        name: node-app
+        name: node-app-1
         image: "{{ dockerhub_repository }}"
         ports:
           - "80:80"
