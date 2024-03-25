@@ -4,7 +4,7 @@ pipeline {
     environment {
         GITHUB_REPO_URL = "https://github.com/M95kandan/node_js_CICD"
         DOCKERHUB_USERNAME = "m95kandan"
-        DOCKERHUB_PASSWORD = "M#95kandan"
+        DOCKERHUB_PASSWORD = "Enter_pass"
         DOCKERHUB_REPOSITORY = "m95kandan/xpb-node-app"
         BUILD_NUMBER_TAG = "${BUILD_NUMBER}"
         RETRY_COUNT = 3
