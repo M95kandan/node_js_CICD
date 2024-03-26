@@ -16,10 +16,16 @@
         enabled: yes
         state: started
 
+    - name: Pull the latest Docker image
+      command: docker pull m95kandan/node-app:latest
+      register: docker_image_pulled
+      changed_when: docker_image_pulled.rc == 0
+
     - name: Run Docker container
       docker_container:
-        name: node-app-1
-        image: "{{ dockerhub_repository }}"
+        name: node-app
+        image: m95kandan/node-app:latest
         ports:
           - "80:80"
         restart_policy: always
+      when: docker_image_pulled.changed or docker_image_pulled is skipped
