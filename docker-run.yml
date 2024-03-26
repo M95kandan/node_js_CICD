@@ -16,6 +16,17 @@
         enabled: yes
         state: started
 
+    - name: Run Portainer agent container
+      docker_container:
+        name: portainer_agent
+        image: portainer/agent:2.19.4
+        ports:
+          - "9001:9001"
+        restart_policy: always
+        volumes:
+          - "/var/run/docker.sock:/var/run/docker.sock"
+          - "/var/lib/docker/volumes:/var/lib/docker/volumes"
+
     - name: Pull the latest Docker image
       command: docker pull m95kandan/xpb-node-app:latest
       register: docker_image_pulled
