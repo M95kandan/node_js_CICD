@@ -24,7 +24,7 @@
     - name: Run Docker container
       docker_container:
         name: node-app
-        image: m95kandan/node-app:latest
+        image: m95kandan/xpb-node-app:latest
         ports:
           - "80:80"
         restart_policy: always
