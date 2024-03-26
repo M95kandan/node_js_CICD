@@ -21,6 +21,10 @@
       register: docker_image_pulled
       changed_when: docker_image_pulled.rc == 0
 
+    - name: Stop and remove existing container if it exists
+      shell: docker rm -f node-app
+      ignore_errors: yes
+
     - name: Run Docker container
       docker_container:
         name: node-app
